@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngma-core-libraries": {
+    "ngma-core-libraries-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngma-core-libraries",
+            "outputPath": "dist/ngma-core-libraries-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -115,6 +115,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "NgmaCoreLibraries": {
+      "root": "projects/ngma-core-libraries",
+      "sourceRoot": "projects/ngma-core-libraries/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngma-core-libraries/tsconfig.lib.json",
+            "project": "projects/ngma-core-libraries/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngma-core-libraries/src/test.ts",
+            "tsConfig": "projects/ngma-core-libraries/tsconfig.spec.json",
+            "karmaConfig": "projects/ngma-core-libraries/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngma-core-libraries/tsconfig.lib.json",
+              "projects/ngma-core-libraries/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

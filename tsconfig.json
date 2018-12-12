@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "NgmaCoreLibrariesAuthorization": [
+        "dist/ngma-core-libraries-authorization"
+      ],
+      "NgmaCoreLibrariesAuthorization/*": [
+        "dist/ngma-core-libraries-authorization/*"
+      ]
+    }
   }
 }
