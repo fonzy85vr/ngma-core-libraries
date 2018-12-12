@@ -2,5 +2,5 @@
 
 ## [Unreleased]
 - Authentication module
--- Authentication from Google
--- Authentication from Local
+  - Authentication from Google
+  - Authentication from Local
