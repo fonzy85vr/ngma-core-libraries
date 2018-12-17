@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { LoginOptions } from './LoginOptions';
 import { ILoginProvider } from './ILoginProvider';
 import { Injectable } from '@angular/core';
 
@@ -29,13 +31,13 @@ export class AuthorizationService {
     });
   }
 
-  OfflineLogin(providerId: string) {
+  Login(providerId: string, loginOpt: LoginOptions, http?: HttpClient) {
     return new Promise((resolve, reject) => {
       const providerObject = this.providers.get(providerId);
       if (providerObject) {
-        providerObject.OfflineLogin().then((authCode) => {
+        providerObject.Login(loginOpt, http).then((authCode: string) => {
           resolve(authCode);
-        }).catch(err => {
+        }).catch((err: any) => {
           reject(err);
         });
       }

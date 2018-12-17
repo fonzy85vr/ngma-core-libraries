@@ -1,5 +1,7 @@
+import { LoginOptions } from './LoginOptions';
 import { BehaviorSubject } from 'rxjs';
 import { ILoginProvider } from './ILoginProvider';
+import { HttpClient } from '@angular/common/http';
 
 export abstract class LoginProvider implements ILoginProvider {
     constructor() {}
@@ -7,9 +9,8 @@ export abstract class LoginProvider implements ILoginProvider {
     protected _readyState: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
     abstract Init();
-    abstract Login();
     abstract Logout();
-    abstract OfflineLogin();
+    abstract Login(loginOpt: LoginOptions, http?: HttpClient);
 
     protected onReady(): Promise<void> {
         return new Promise((resolve, reject) => {

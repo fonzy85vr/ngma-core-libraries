@@ -8,12 +8,10 @@ import { CommonModule } from '@angular/common';
     ],
     exports: [],
     declarations: [],
-    providers: [
-      AuthorizationService
-    ],
+    providers: [],
   })
 export class AuthModule {
-    Init(config: AuthServiceConfig) {
+    static Init(config: AuthServiceConfig) {
         return {
             ngModule: AuthModule,
             providers: [

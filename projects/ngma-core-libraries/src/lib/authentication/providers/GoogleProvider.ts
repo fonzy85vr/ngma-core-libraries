@@ -1,3 +1,4 @@
+import { LoginOptions } from './../LoginOptions';
 import { LoginProvider } from '../LoginProvider';
 
 declare let gapi: any;
@@ -34,25 +35,45 @@ export class GoogleProvider extends LoginProvider {
         });
     }
 
-    Login() {
-    }
-
     Logout() {
-    }
-
-    OfflineLogin() {
         return new Promise((resolve, reject) => {
             this.onReady().then(() => {
-                this.auth2.grantOfflineAccess({
-                    scope: 'profile email'
-                }).then((res) => {
-                    resolve(res.code);
-                }, (closed: any) => {
-                    reject('User cancelled login or did not fully authorize.');
-                }).catch((err: any) => {
+                this.auth2.signOut().then(() => {
+                    resolve();
+                }).catch((err) => {
                     reject(err);
                 });
             });
         });
+    }
+
+    Login(loginOpt: LoginOptions) {
+        if (!loginOpt.offline) {
+            return new Promise((resolve, reject) => {
+                this.onReady().then(() => {
+                    this.auth2.signIn({
+                        scope: 'profile email'
+                    }).then((res) => {
+                        resolve(res.code);
+                    }, (closed: any) => {
+                    }).catch((err: any) => {
+                        reject(err);
+                    });
+                });
+            });
+        } else {
+            return new Promise((resolve, reject) => {
+                this.onReady().then(() => {
+                    this.auth2.grantOfflineAccess({
+                        scope: 'profile email'
+                    }).then((res) => {
+                        resolve(res.code);
+                    }, (closed: any) => {
+                    }).catch((err: any) => {
+                        reject(err);
+                    });
+                });
+            });
+        }
     }
 }

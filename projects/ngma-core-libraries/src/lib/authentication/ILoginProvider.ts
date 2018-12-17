@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { LoginOptions } from './LoginOptions';
+
 export interface ILoginProvider {
     Init();
-    Login();
     Logout();
-    OfflineLogin();
+    Login(loginOpt: LoginOptions, http?: HttpClient);
 }
