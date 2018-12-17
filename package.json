@@ -1,5 +1,5 @@
 {
-  "name": "ngma-core-libraries",
+  "name": "ngma-core-libraries-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
