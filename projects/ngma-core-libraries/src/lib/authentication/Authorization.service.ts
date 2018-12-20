@@ -43,4 +43,17 @@ export class AuthorizationService {
       }
     });
   }
+
+  AuthorizeToken (providerId: string, token: string, http: HttpClient) {
+    return new Promise((resolve, reject) => {
+      const providerObject = this.providers.get(providerId);
+      if (providerObject) {
+        providerObject.AuthorizeToken(token, http).then((tokens: any) => {
+          resolve(tokens);
+        }).catch((err: any) => {
+          reject(err);
+        });
+      }
+    });
+}
 }
