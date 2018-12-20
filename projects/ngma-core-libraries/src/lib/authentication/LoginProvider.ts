@@ -11,6 +11,7 @@ export abstract class LoginProvider implements ILoginProvider {
     abstract Init();
     abstract Logout();
     abstract Login(loginOpt: LoginOptions, http?: HttpClient);
+    abstract AuthorizeToken(token: string, http?: HttpClient);
 
     protected onReady(): Promise<void> {
         return new Promise((resolve, reject) => {

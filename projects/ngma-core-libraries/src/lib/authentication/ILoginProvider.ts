@@ -5,4 +5,5 @@ export interface ILoginProvider {
     Init();
     Logout();
     Login(loginOpt: LoginOptions, http?: HttpClient);
+    AuthorizeToken(token: string, http?: HttpClient);
 }

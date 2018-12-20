@@ -1,5 +1,8 @@
 # NgmaCoreLibraries
 
+## Changelog
+[Changelog here](https://github.com/fonzy85vr/ngma-core-libraries/blob/develop/projects/ngma-core-libraries/CHANGELOG.md)
+
 ## Description
 This package containt all the base functionalities of an Angular Application.
 - Authentication (by google, local server, ...)
@@ -18,7 +21,7 @@ export function getAuthServiceConfigs() {
       provider: new GoogleProvider('306411211066-aft61tohv2uml1rirdmmutb7e2nhleq6.apps.googleusercontent.com')
   }, {
     id: LocalProvider.PROVIDER_ID,
-    provider: new LocalProvider(`${_url}/auth/login`)
+    provider: new LocalProvider(`${_url}\auth`)
 }]);
 
   return config;
@@ -35,6 +38,8 @@ export function getAuthServiceConfigs() {
 })
 export class SharedModule { }
 ```
+
+In your server api you must have an entry point called *login* that accept the parameters *username* and *password*.
 
 In your Service
 
@@ -58,6 +63,14 @@ export class AuthService {
 
     login(username, password) {
         return this._authService.Login(LocalProvider.PROVIDER_ID, { username, password }, this._http).then(
+            (userData) => {
+               return userData; // userData contains your api result
+            }
+        );
+    }
+
+    authToken(token) {
+        return this._authService.AuthorizeToken(LocalProvider.PROVIDER_ID, { token }, this._http).then(
             (userData) => {
                return userData; // userData contains your api result
             }
