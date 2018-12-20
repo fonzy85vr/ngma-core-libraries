@@ -39,7 +39,7 @@ export function getAuthServiceConfigs() {
 export class SharedModule { }
 ```
 
-In your server api you must have an entry point called *login* that accept the parameters *username* and *password*.
+In your server api you must have an entry point called **login** that accept the parameters **username** and **password**.
 
 In your Service
 
