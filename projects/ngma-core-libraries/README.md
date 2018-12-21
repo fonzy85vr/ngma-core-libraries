@@ -1,6 +1,6 @@
 # NgmaCoreLibraries
 
-[![npm 0.2.0](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ngma-core-libraries)
+[![npm version][npm]][npmurl]
 
 ## Changelog
 [Changelog here](https://github.com/fonzy85vr/ngma-core-libraries/blob/develop/projects/ngma-core-libraries/CHANGELOG.md)
@@ -81,3 +81,5 @@ export class AuthService {
 }
 
 ```
+[npm]: https://img.shields.io/npm/v/ngma-core-libraries.svg
+[npmurl]: https://www.npmjs.com/package/ngma-core-libraries
