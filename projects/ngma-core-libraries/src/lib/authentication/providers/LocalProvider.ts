@@ -17,7 +17,7 @@ export class LocalProvider extends LoginProvider {
     Login(loginOpt: LoginOptions, http: HttpClient) {
         return new Promise((resolve, reject) => {
             const {username, password} = loginOpt;
-            http.post<any>(`${this.url}\login`, { username, password })
+            http.post<any>(`${this.url}/login`, { username, password })
                 .toPromise()
                 .then(res => {
                     resolve(res);
@@ -29,7 +29,7 @@ export class LocalProvider extends LoginProvider {
 
     AuthorizeToken (token: string, http: HttpClient) {
         return new Promise((resolve, reject) => {
-            http.post<any>(`${this.url}\authorizeToken`, { token })
+            http.post<any>(`${this.url}/authorizeToken`, { token })
                 .toPromise()
                 .then(res => {
                     resolve(res);

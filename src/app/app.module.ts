@@ -14,7 +14,7 @@ export function getAuthServiceConfigs() {
       provider: new GoogleProvider('306411211066-aft61tohv2uml1rirdmmutb7e2nhleq6.apps.googleusercontent.com')
   }, {
     id: LocalProvider.PROVIDER_ID,
-    provider: new LocalProvider('http:\\localhost')
+    provider: new LocalProvider('http://localhost')
 }]);
 
   return config;

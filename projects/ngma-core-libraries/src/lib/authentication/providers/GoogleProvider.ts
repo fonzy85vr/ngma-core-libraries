@@ -1,5 +1,6 @@
 import { LoginOptions } from './../LoginOptions';
 import { LoginProvider } from '../LoginProvider';
+import { HttpClient } from '@angular/common/http';
 
 declare let gapi: any;
 
@@ -76,4 +77,6 @@ export class GoogleProvider extends LoginProvider {
             });
         }
     }
+
+    AuthorizeToken (token: string, http: HttpClient) {}
 }
