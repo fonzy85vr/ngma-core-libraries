@@ -80,6 +80,4 @@ export class GoogleProvider extends LoginProvider {
             });
         }
     }
-
-    AuthorizeToken (token: string, http: HttpClient) {}
 }
