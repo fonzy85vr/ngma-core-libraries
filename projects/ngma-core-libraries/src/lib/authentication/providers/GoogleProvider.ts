@@ -4,6 +4,9 @@ import { LoginProvider } from '../LoginProvider';
 declare let gapi: any;
 
 export class GoogleProvider extends LoginProvider {
+    AuthorizeToken(token: string, http?: import("@angular/common/http").HttpClient) {
+        throw new Error("Method not implemented.");
+    }
 
     public static readonly PROVIDER_ID: string = 'GOOGLE_PROVIDER';
 
