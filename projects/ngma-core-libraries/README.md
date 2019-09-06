@@ -82,6 +82,3 @@ export class AuthService {
 }
 
 ```
-[npm]: https://img.shields.io/npm/v/ngma-core-libraries.svg
-[npmdownload]: https://img.shields.io/npm/dw/ngma-core-libraries.svg
-[npmurl]: https://www.npmjs.com/package/ngma-core-libraries
